@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package go.micro.service.blog;
+
+option go_package = "./;blog";
+
+service Blog {
+    rpc Category(CategoryIndexRequest) returns (CategoryIndexResponse) {}
+}
+
+
+message CategoryIndexRequest {
+}
+
+message CategoryItem {
+    string name = 1;
+    uint64 id = 2;
+    uint32 status = 3;
+}
+
+message CategoryIndexResponse {
+    message CategoryItem {
+        string name = 1;
+        uint64 id = 2;
+        uint32 status = 3;
+    }
+    repeated CategoryItem CategoryList = 1;
+}
+
