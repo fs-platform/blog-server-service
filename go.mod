@@ -11,7 +11,6 @@ require (
 	github.com/golang/protobuf v1.5.2
 	github.com/micro/go-micro/v2 v2.9.1
 	github.com/micro/go-plugins/registry/consul/v2 v2.9.1
-	github.com/micro/micro/v2 v2.9.3 // indirect
 	github.com/spf13/cast v1.3.0
 	github.com/spf13/viper v1.6.3
 	google.golang.org/protobuf v1.27.1

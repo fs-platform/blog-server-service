@@ -2,6 +2,7 @@ package config
 
 import (
 	"blog/pkg/logger"
+	"flag"
 	"github.com/spf13/cast"
 	"github.com/spf13/viper"
 )
@@ -13,6 +14,8 @@ type StrMap map[string]interface{}
 
 // init() 函数在 import 的时候立刻被加载
 func init() {
+	envPath := flag.String("envPath", ".", "configPath flag")
+	flag.Parse()
 	// 1. 初始化 Viper 库
 	Viper = viper.New()
 	// 2. 设置文件名称
@@ -21,7 +24,7 @@ func init() {
 	//             "props", "prop", "env", "dotenv"
 	Viper.SetConfigType("env")
 	// 4. 环境变量配置文件查找的路径，相对于 main.go
-	Viper.AddConfigPath(".")
+	Viper.AddConfigPath(*envPath)
 
 	// 5. 开始读根目录下的 .env 文件，读不到会报错
 	err := Viper.ReadInConfig()
