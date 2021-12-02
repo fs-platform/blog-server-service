@@ -14,7 +14,7 @@ type StrMap map[string]interface{}
 
 // init() 函数在 import 的时候立刻被加载
 func init() {
-	envPath := flag.String("envPath", ".", "configPath flag")
+	envPath := flag.String("config", ".", "configPath flag")
 	flag.Parse()
 	// 1. 初始化 Viper 库
 	Viper = viper.New()

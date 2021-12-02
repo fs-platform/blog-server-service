@@ -14,13 +14,13 @@ import (
 func main() {
 	bootstrap.Initialization()
 	consul := consul.NewRegistry()
-	rateLimit := limit.NewBucketWithRate(float64(500), int64(1000))
+	rateLimitConfig := limit.NewBucketWithRate(float64(500), int64(1000))
 	// New Service
 	service := micro.NewService(
 		micro.Name("go.micro.service.blog"),
 		micro.Version("latest"),
 		micro.Registry(consul),
-		micro.WrapHandler(ratelimit.NewHandlerWrapper(rateLimit,false)),
+		micro.WrapHandler(ratelimit.NewHandlerWrapper(rateLimitConfig,false)),
 	)
 	service.Init()
 
