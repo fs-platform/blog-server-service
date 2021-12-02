@@ -39,6 +39,7 @@ func (e *Blog) Article(ctx context.Context, req *blog.ArticleRequest, rsp *blog.
 			Status: uint32(val.Status),
 			Like: val.Like,
 			Author: val.Author,
+			UpdatedAt: uint64(val.UpdatedAt),
 		}
 		rsp.ArticleList = append(rsp.ArticleList, &item)
 	}
