@@ -43,6 +43,7 @@ func NewBlogEndpoints() []*api.Endpoint {
 
 type BlogService interface {
 	Category(ctx context.Context, in *CategoryIndexRequest, opts ...client.CallOption) (*CategoryIndexResponse, error)
+	Article(ctx context.Context, in *ArticleRequest, opts ...client.CallOption) (*ArticleResponse, error)
 }
 
 type blogService struct {
@@ -67,15 +68,27 @@ func (c *blogService) Category(ctx context.Context, in *CategoryIndexRequest, op
 	return out, nil
 }
 
+func (c *blogService) Article(ctx context.Context, in *ArticleRequest, opts ...client.CallOption) (*ArticleResponse, error) {
+	req := c.c.NewRequest(c.name, "Blog.Article", in)
+	out := new(ArticleResponse)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // Server API for Blog service
 
 type BlogHandler interface {
 	Category(context.Context, *CategoryIndexRequest, *CategoryIndexResponse) error
+	Article(context.Context, *ArticleRequest, *ArticleResponse) error
 }
 
 func RegisterBlogHandler(s server.Server, hdlr BlogHandler, opts ...server.HandlerOption) error {
 	type blog interface {
 		Category(ctx context.Context, in *CategoryIndexRequest, out *CategoryIndexResponse) error
+		Article(ctx context.Context, in *ArticleRequest, out *ArticleResponse) error
 	}
 	type Blog struct {
 		blog
@@ -90,4 +103,8 @@ type blogHandler struct {
 
 func (h *blogHandler) Category(ctx context.Context, in *CategoryIndexRequest, out *CategoryIndexResponse) error {
 	return h.BlogHandler.Category(ctx, in, out)
+}
+
+func (h *blogHandler) Article(ctx context.Context, in *ArticleRequest, out *ArticleResponse) error {
+	return h.BlogHandler.Article(ctx, in, out)
 }

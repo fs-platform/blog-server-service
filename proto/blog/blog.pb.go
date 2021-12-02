@@ -126,7 +126,7 @@ type CategoryIndexResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	CategoryList []*CategoryIndexResponse_CategoryItem `protobuf:"bytes,1,rep,name=CategoryList,proto3" json:"categoryList,omitempty"`
+	CategoryList []*CategoryIndexResponse_CategoryItem `protobuf:"bytes,1,rep,name=CategoryList,proto3" json:"CategoryList,omitempty"`
 }
 
 func (x *CategoryIndexResponse) Reset() {
@@ -168,6 +168,100 @@ func (x *CategoryIndexResponse) GetCategoryList() []*CategoryIndexResponse_Categ
 	return nil
 }
 
+type ArticleRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id int64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (x *ArticleRequest) Reset() {
+	*x = ArticleRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_blog_blog_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ArticleRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ArticleRequest) ProtoMessage() {}
+
+func (x *ArticleRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blog_blog_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ArticleRequest.ProtoReflect.Descriptor instead.
+func (*ArticleRequest) Descriptor() ([]byte, []int) {
+	return file_proto_blog_blog_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *ArticleRequest) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type ArticleResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ArticleList []*ArticleResponse_ArticleItem `protobuf:"bytes,1,rep,name=ArticleList,proto3" json:"ArticleList,omitempty"`
+}
+
+func (x *ArticleResponse) Reset() {
+	*x = ArticleResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_blog_blog_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ArticleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ArticleResponse) ProtoMessage() {}
+
+func (x *ArticleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blog_blog_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ArticleResponse.ProtoReflect.Descriptor instead.
+func (*ArticleResponse) Descriptor() ([]byte, []int) {
+	return file_proto_blog_blog_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *ArticleResponse) GetArticleList() []*ArticleResponse_ArticleItem {
+	if x != nil {
+		return x.ArticleList
+	}
+	return nil
+}
+
 type CategoryIndexResponse_CategoryItem struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -181,7 +275,7 @@ type CategoryIndexResponse_CategoryItem struct {
 func (x *CategoryIndexResponse_CategoryItem) Reset() {
 	*x = CategoryIndexResponse_CategoryItem{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_blog_blog_proto_msgTypes[3]
+		mi := &file_proto_blog_blog_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -194,7 +288,7 @@ func (x *CategoryIndexResponse_CategoryItem) String() string {
 func (*CategoryIndexResponse_CategoryItem) ProtoMessage() {}
 
 func (x *CategoryIndexResponse_CategoryItem) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_blog_blog_proto_msgTypes[3]
+	mi := &file_proto_blog_blog_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -231,6 +325,93 @@ func (x *CategoryIndexResponse_CategoryItem) GetStatus() uint32 {
 	return 0
 }
 
+type ArticleResponse_ArticleItem struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Name      string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Id        uint64 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
+	Status    uint32 `protobuf:"varint,3,opt,name=status,proto3" json:"status,omitempty"`
+	Like      uint64 `protobuf:"varint,4,opt,name=like,proto3" json:"like,omitempty"`
+	Author    string `protobuf:"bytes,5,opt,name=author,proto3" json:"author,omitempty"`
+	UpdatedAt uint64 `protobuf:"varint,6,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+}
+
+func (x *ArticleResponse_ArticleItem) Reset() {
+	*x = ArticleResponse_ArticleItem{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_blog_blog_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ArticleResponse_ArticleItem) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ArticleResponse_ArticleItem) ProtoMessage() {}
+
+func (x *ArticleResponse_ArticleItem) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blog_blog_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ArticleResponse_ArticleItem.ProtoReflect.Descriptor instead.
+func (*ArticleResponse_ArticleItem) Descriptor() ([]byte, []int) {
+	return file_proto_blog_blog_proto_rawDescGZIP(), []int{4, 0}
+}
+
+func (x *ArticleResponse_ArticleItem) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *ArticleResponse_ArticleItem) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *ArticleResponse_ArticleItem) GetStatus() uint32 {
+	if x != nil {
+		return x.Status
+	}
+	return 0
+}
+
+func (x *ArticleResponse_ArticleItem) GetLike() uint64 {
+	if x != nil {
+		return x.Like
+	}
+	return 0
+}
+
+func (x *ArticleResponse_ArticleItem) GetAuthor() string {
+	if x != nil {
+		return x.Author
+	}
+	return ""
+}
+
+func (x *ArticleResponse_ArticleItem) GetUpdatedAt() uint64 {
+	if x != nil {
+		return x.UpdatedAt
+	}
+	return 0
+}
+
 var File_proto_blog_blog_proto protoreflect.FileDescriptor
 
 var file_proto_blog_blog_proto_rawDesc = []byte{
@@ -255,15 +436,33 @@ var file_proto_blog_blog_proto_rawDesc = []byte{
 	0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12,
 	0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x12,
 	0x16, 0x0a, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0d, 0x52,
-	0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x32, 0x6f, 0x0a, 0x04, 0x42, 0x6c, 0x6f, 0x67, 0x12,
-	0x67, 0x0a, 0x08, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x12, 0x2b, 0x2e, 0x67, 0x6f,
+	0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x22, 0x20, 0x0a, 0x0e, 0x41, 0x72, 0x74, 0x69, 0x63,
+	0x6c, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x02, 0x69, 0x64, 0x22, 0xfe, 0x01, 0x0a, 0x0f, 0x41, 0x72,
+	0x74, 0x69, 0x63, 0x6c, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x54, 0x0a,
+	0x0b, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x4c, 0x69, 0x73, 0x74, 0x18, 0x01, 0x20, 0x03,
+	0x28, 0x0b, 0x32, 0x32, 0x2e, 0x67, 0x6f, 0x2e, 0x6d, 0x69, 0x63, 0x72, 0x6f, 0x2e, 0x73, 0x65,
+	0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x62, 0x6c, 0x6f, 0x67, 0x2e, 0x41, 0x72, 0x74, 0x69, 0x63,
+	0x6c, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x2e, 0x41, 0x72, 0x74, 0x69, 0x63,
+	0x6c, 0x65, 0x49, 0x74, 0x65, 0x6d, 0x52, 0x0b, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x4c,
+	0x69, 0x73, 0x74, 0x1a, 0x94, 0x01, 0x0a, 0x0b, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x49,
+	0x74, 0x65, 0x6d, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x02, 0x20,
+	0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x12, 0x16, 0x0a, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75,
+	0x73, 0x18, 0x03, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12,
+	0x12, 0x0a, 0x04, 0x6c, 0x69, 0x6b, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x04, 0x52, 0x04, 0x6c,
+	0x69, 0x6b, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x61, 0x75, 0x74, 0x68, 0x6f, 0x72, 0x18, 0x05, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x06, 0x61, 0x75, 0x74, 0x68, 0x6f, 0x72, 0x12, 0x1d, 0x0a, 0x0a, 0x75,
+	0x70, 0x64, 0x61, 0x74, 0x65, 0x64, 0x5f, 0x61, 0x74, 0x18, 0x06, 0x20, 0x01, 0x28, 0x04, 0x52,
+	0x09, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x32, 0x6f, 0x0a, 0x04, 0x42, 0x6c,
+	0x6f, 0x67, 0x12, 0x67, 0x0a, 0x08, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x12, 0x2b,
+	0x2e, 0x67, 0x6f, 0x2e, 0x6d, 0x69, 0x63, 0x72, 0x6f, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63,
+	0x65, 0x2e, 0x62, 0x6c, 0x6f, 0x67, 0x2e, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49,
+	0x6e, 0x64, 0x65, 0x78, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2c, 0x2e, 0x67, 0x6f,
 	0x2e, 0x6d, 0x69, 0x63, 0x72, 0x6f, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x62,
 	0x6c, 0x6f, 0x67, 0x2e, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49, 0x6e, 0x64, 0x65,
-	0x78, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2c, 0x2e, 0x67, 0x6f, 0x2e, 0x6d, 0x69,
-	0x63, 0x72, 0x6f, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x62, 0x6c, 0x6f, 0x67,
-	0x2e, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49, 0x6e, 0x64, 0x65, 0x78, 0x52, 0x65,
-	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x42, 0x09, 0x5a, 0x07, 0x2e, 0x2f, 0x3b, 0x62,
-	0x6c, 0x6f, 0x67, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x78, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x42, 0x09, 0x5a, 0x07, 0x2e,
+	0x2f, 0x3b, 0x62, 0x6c, 0x6f, 0x67, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -278,22 +477,26 @@ func file_proto_blog_blog_proto_rawDescGZIP() []byte {
 	return file_proto_blog_blog_proto_rawDescData
 }
 
-var file_proto_blog_blog_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_proto_blog_blog_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_proto_blog_blog_proto_goTypes = []interface{}{
 	(*CategoryIndexRequest)(nil),               // 0: go.micro.service.blog.CategoryIndexRequest
 	(*CategoryItem)(nil),                       // 1: go.micro.service.blog.CategoryItem
 	(*CategoryIndexResponse)(nil),              // 2: go.micro.service.blog.CategoryIndexResponse
-	(*CategoryIndexResponse_CategoryItem)(nil), // 3: go.micro.service.blog.CategoryIndexResponse.CategoryItem
+	(*ArticleRequest)(nil),                     // 3: go.micro.service.blog.ArticleRequest
+	(*ArticleResponse)(nil),                    // 4: go.micro.service.blog.ArticleResponse
+	(*CategoryIndexResponse_CategoryItem)(nil), // 5: go.micro.service.blog.CategoryIndexResponse.CategoryItem
+	(*ArticleResponse_ArticleItem)(nil),        // 6: go.micro.service.blog.ArticleResponse.ArticleItem
 }
 var file_proto_blog_blog_proto_depIdxs = []int32{
-	3, // 0: go.micro.service.blog.CategoryIndexResponse.CategoryList:type_name -> go.micro.service.blog.CategoryIndexResponse.CategoryItem
-	0, // 1: go.micro.service.blog.Blog.Category:input_type -> go.micro.service.blog.CategoryIndexRequest
-	2, // 2: go.micro.service.blog.Blog.Category:output_type -> go.micro.service.blog.CategoryIndexResponse
-	2, // [2:3] is the sub-list for method output_type
-	1, // [1:2] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	5, // 0: go.micro.service.blog.CategoryIndexResponse.CategoryList:type_name -> go.micro.service.blog.CategoryIndexResponse.CategoryItem
+	6, // 1: go.micro.service.blog.ArticleResponse.ArticleList:type_name -> go.micro.service.blog.ArticleResponse.ArticleItem
+	0, // 2: go.micro.service.blog.Blog.Category:input_type -> go.micro.service.blog.CategoryIndexRequest
+	2, // 3: go.micro.service.blog.Blog.Category:output_type -> go.micro.service.blog.CategoryIndexResponse
+	3, // [3:4] is the sub-list for method output_type
+	2, // [2:3] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_proto_blog_blog_proto_init() }
@@ -339,7 +542,43 @@ func file_proto_blog_blog_proto_init() {
 			}
 		}
 		file_proto_blog_blog_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ArticleRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_blog_blog_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ArticleResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_blog_blog_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CategoryIndexResponse_CategoryItem); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_blog_blog_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ArticleResponse_ArticleItem); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -357,7 +596,7 @@ func file_proto_blog_blog_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_proto_blog_blog_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

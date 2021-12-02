@@ -6,6 +6,7 @@ option go_package = "./;blog";
 
 service Blog {
     rpc Category(CategoryIndexRequest) returns (CategoryIndexResponse) {}
+    rpc Article(ArticleRequest) returns (ArticleResponse) {}
 }
 
 
@@ -27,3 +28,19 @@ message CategoryIndexResponse {
     repeated CategoryItem CategoryList = 1;
 }
 
+message ArticleRequest {
+    int64 id = 1;
+}
+
+
+message ArticleResponse {
+    message ArticleItem {
+        string name = 1;
+        uint64 id = 2;
+        uint32 status = 3;
+        uint64 like = 4;
+        string author = 5;
+        uint64 updated_at = 6;
+    }
+    repeated ArticleItem ArticleList = 1;
+}
