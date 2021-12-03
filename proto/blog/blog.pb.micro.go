@@ -44,6 +44,7 @@ func NewBlogEndpoints() []*api.Endpoint {
 type BlogService interface {
 	Category(ctx context.Context, in *CategoryIndexRequest, opts ...client.CallOption) (*CategoryIndexResponse, error)
 	Article(ctx context.Context, in *ArticleRequest, opts ...client.CallOption) (*ArticleResponse, error)
+	ArticleDetail(ctx context.Context, in *ArticleDetailRequest, opts ...client.CallOption) (*ArticleDetailResponse, error)
 }
 
 type blogService struct {
@@ -78,17 +79,29 @@ func (c *blogService) Article(ctx context.Context, in *ArticleRequest, opts ...c
 	return out, nil
 }
 
+func (c *blogService) ArticleDetail(ctx context.Context, in *ArticleDetailRequest, opts ...client.CallOption) (*ArticleDetailResponse, error) {
+	req := c.c.NewRequest(c.name, "Blog.ArticleDetail", in)
+	out := new(ArticleDetailResponse)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // Server API for Blog service
 
 type BlogHandler interface {
 	Category(context.Context, *CategoryIndexRequest, *CategoryIndexResponse) error
 	Article(context.Context, *ArticleRequest, *ArticleResponse) error
+	ArticleDetail(context.Context, *ArticleDetailRequest, *ArticleDetailResponse) error
 }
 
 func RegisterBlogHandler(s server.Server, hdlr BlogHandler, opts ...server.HandlerOption) error {
 	type blog interface {
 		Category(ctx context.Context, in *CategoryIndexRequest, out *CategoryIndexResponse) error
 		Article(ctx context.Context, in *ArticleRequest, out *ArticleResponse) error
+		ArticleDetail(ctx context.Context, in *ArticleDetailRequest, out *ArticleDetailResponse) error
 	}
 	type Blog struct {
 		blog
@@ -107,4 +120,8 @@ func (h *blogHandler) Category(ctx context.Context, in *CategoryIndexRequest, ou
 
 func (h *blogHandler) Article(ctx context.Context, in *ArticleRequest, out *ArticleResponse) error {
 	return h.BlogHandler.Article(ctx, in, out)
+}
+
+func (h *blogHandler) ArticleDetail(ctx context.Context, in *ArticleDetailRequest, out *ArticleDetailResponse) error {
+	return h.BlogHandler.ArticleDetail(ctx, in, out)
 }

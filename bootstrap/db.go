@@ -2,6 +2,7 @@ package bootstrap
 
 import (
 	"blog/app/models/article"
+	"blog/app/models/articleDetail"
 	"blog/app/models/category"
 	"blog/pkg/model"
 	"time"
@@ -22,5 +23,5 @@ func SetupDB() {
 	// 设置每个链接的过期时间
 	sqlDB.SetConnMaxLifetime(5 * time.Minute)
 
-	db.Set("gorm:table_options", "ENGINE=InnoDB").AutoMigrate(&category.Categories{}, &article.Article{})
+	db.Set("gorm:table_options", "ENGINE=InnoDB").AutoMigrate(&category.Categories{}, &article.Article{}, &articleDetail.ArticleDetail{})
 }

@@ -2,6 +2,7 @@ package handler
 
 import (
 	"blog/app/models/article"
+	"blog/app/models/articleDetail"
 	"blog/app/models/category"
 	blog "blog/proto/blog"
 	"context"
@@ -43,5 +44,17 @@ func (e *Blog) Article(ctx context.Context, req *blog.ArticleRequest, rsp *blog.
 		}
 		rsp.ArticleList = append(rsp.ArticleList, &item)
 	}
+	return nil
+}
+
+// Article 文章列表
+func (e *Blog) ArticleDetail(ctx context.Context, req *blog.ArticleDetailRequest, rsp *blog.ArticleDetailResponse) error {
+	data, err := articleDetail.GetById(req.Id)
+	if err != nil {
+		return err
+	}
+	rsp.Id = data.ID
+	rsp.ArticleId = data.ArticleId
+	rsp.Content = data.Content
 	return nil
 }

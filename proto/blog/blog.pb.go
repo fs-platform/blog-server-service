@@ -262,6 +262,116 @@ func (x *ArticleResponse) GetArticleList() []*ArticleResponse_ArticleItem {
 	return nil
 }
 
+type ArticleDetailRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id int64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (x *ArticleDetailRequest) Reset() {
+	*x = ArticleDetailRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_blog_blog_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ArticleDetailRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ArticleDetailRequest) ProtoMessage() {}
+
+func (x *ArticleDetailRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blog_blog_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ArticleDetailRequest.ProtoReflect.Descriptor instead.
+func (*ArticleDetailRequest) Descriptor() ([]byte, []int) {
+	return file_proto_blog_blog_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *ArticleDetailRequest) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type ArticleDetailResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Content   string `protobuf:"bytes,1,opt,name=content,proto3" json:"content,omitempty"`
+	Id        uint64 `protobuf:"varint,2,opt,name=id,proto3" json:"id,omitempty"`
+	ArticleId uint64 `protobuf:"varint,4,opt,name=article_id,json=articleId,proto3" json:"article_id,omitempty"`
+}
+
+func (x *ArticleDetailResponse) Reset() {
+	*x = ArticleDetailResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_blog_blog_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ArticleDetailResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ArticleDetailResponse) ProtoMessage() {}
+
+func (x *ArticleDetailResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_blog_blog_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ArticleDetailResponse.ProtoReflect.Descriptor instead.
+func (*ArticleDetailResponse) Descriptor() ([]byte, []int) {
+	return file_proto_blog_blog_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *ArticleDetailResponse) GetContent() string {
+	if x != nil {
+		return x.Content
+	}
+	return ""
+}
+
+func (x *ArticleDetailResponse) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *ArticleDetailResponse) GetArticleId() uint64 {
+	if x != nil {
+		return x.ArticleId
+	}
+	return 0
+}
+
 type CategoryIndexResponse_CategoryItem struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -275,7 +385,7 @@ type CategoryIndexResponse_CategoryItem struct {
 func (x *CategoryIndexResponse_CategoryItem) Reset() {
 	*x = CategoryIndexResponse_CategoryItem{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_blog_blog_proto_msgTypes[5]
+		mi := &file_proto_blog_blog_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -288,7 +398,7 @@ func (x *CategoryIndexResponse_CategoryItem) String() string {
 func (*CategoryIndexResponse_CategoryItem) ProtoMessage() {}
 
 func (x *CategoryIndexResponse_CategoryItem) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_blog_blog_proto_msgTypes[5]
+	mi := &file_proto_blog_blog_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -341,7 +451,7 @@ type ArticleResponse_ArticleItem struct {
 func (x *ArticleResponse_ArticleItem) Reset() {
 	*x = ArticleResponse_ArticleItem{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_blog_blog_proto_msgTypes[6]
+		mi := &file_proto_blog_blog_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -354,7 +464,7 @@ func (x *ArticleResponse_ArticleItem) String() string {
 func (*ArticleResponse_ArticleItem) ProtoMessage() {}
 
 func (x *ArticleResponse_ArticleItem) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_blog_blog_proto_msgTypes[6]
+	mi := &file_proto_blog_blog_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -454,15 +564,37 @@ var file_proto_blog_blog_proto_rawDesc = []byte{
 	0x69, 0x6b, 0x65, 0x12, 0x16, 0x0a, 0x06, 0x61, 0x75, 0x74, 0x68, 0x6f, 0x72, 0x18, 0x05, 0x20,
 	0x01, 0x28, 0x09, 0x52, 0x06, 0x61, 0x75, 0x74, 0x68, 0x6f, 0x72, 0x12, 0x1d, 0x0a, 0x0a, 0x75,
 	0x70, 0x64, 0x61, 0x74, 0x65, 0x64, 0x5f, 0x61, 0x74, 0x18, 0x06, 0x20, 0x01, 0x28, 0x04, 0x52,
-	0x09, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x32, 0x6f, 0x0a, 0x04, 0x42, 0x6c,
-	0x6f, 0x67, 0x12, 0x67, 0x0a, 0x08, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x12, 0x2b,
-	0x2e, 0x67, 0x6f, 0x2e, 0x6d, 0x69, 0x63, 0x72, 0x6f, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63,
-	0x65, 0x2e, 0x62, 0x6c, 0x6f, 0x67, 0x2e, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49,
-	0x6e, 0x64, 0x65, 0x78, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2c, 0x2e, 0x67, 0x6f,
-	0x2e, 0x6d, 0x69, 0x63, 0x72, 0x6f, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x62,
-	0x6c, 0x6f, 0x67, 0x2e, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49, 0x6e, 0x64, 0x65,
-	0x78, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x42, 0x09, 0x5a, 0x07, 0x2e,
-	0x2f, 0x3b, 0x62, 0x6c, 0x6f, 0x67, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x09, 0x75, 0x70, 0x64, 0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x22, 0x26, 0x0a, 0x14, 0x41, 0x72,
+	0x74, 0x69, 0x63, 0x6c, 0x65, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x02,
+	0x69, 0x64, 0x22, 0x60, 0x0a, 0x15, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x44, 0x65, 0x74,
+	0x61, 0x69, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x63,
+	0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x63, 0x6f,
+	0x6e, 0x74, 0x65, 0x6e, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x04, 0x52, 0x02, 0x69, 0x64, 0x12, 0x1d, 0x0a, 0x0a, 0x61, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65,
+	0x5f, 0x69, 0x64, 0x18, 0x04, 0x20, 0x01, 0x28, 0x04, 0x52, 0x09, 0x61, 0x72, 0x74, 0x69, 0x63,
+	0x6c, 0x65, 0x49, 0x64, 0x32, 0xb9, 0x02, 0x0a, 0x04, 0x42, 0x6c, 0x6f, 0x67, 0x12, 0x67, 0x0a,
+	0x08, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x12, 0x2b, 0x2e, 0x67, 0x6f, 0x2e, 0x6d,
+	0x69, 0x63, 0x72, 0x6f, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x62, 0x6c, 0x6f,
+	0x67, 0x2e, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49, 0x6e, 0x64, 0x65, 0x78, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x2c, 0x2e, 0x67, 0x6f, 0x2e, 0x6d, 0x69, 0x63, 0x72,
+	0x6f, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x62, 0x6c, 0x6f, 0x67, 0x2e, 0x43,
+	0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x49, 0x6e, 0x64, 0x65, 0x78, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x5a, 0x0a, 0x07, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c,
+	0x65, 0x12, 0x25, 0x2e, 0x67, 0x6f, 0x2e, 0x6d, 0x69, 0x63, 0x72, 0x6f, 0x2e, 0x73, 0x65, 0x72,
+	0x76, 0x69, 0x63, 0x65, 0x2e, 0x62, 0x6c, 0x6f, 0x67, 0x2e, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c,
+	0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x26, 0x2e, 0x67, 0x6f, 0x2e, 0x6d, 0x69,
+	0x63, 0x72, 0x6f, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x62, 0x6c, 0x6f, 0x67,
+	0x2e, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x22, 0x00, 0x12, 0x6c, 0x0a, 0x0d, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65, 0x44, 0x65, 0x74,
+	0x61, 0x69, 0x6c, 0x12, 0x2b, 0x2e, 0x67, 0x6f, 0x2e, 0x6d, 0x69, 0x63, 0x72, 0x6f, 0x2e, 0x73,
+	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x62, 0x6c, 0x6f, 0x67, 0x2e, 0x41, 0x72, 0x74, 0x69,
+	0x63, 0x6c, 0x65, 0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x1a, 0x2c, 0x2e, 0x67, 0x6f, 0x2e, 0x6d, 0x69, 0x63, 0x72, 0x6f, 0x2e, 0x73, 0x65, 0x72, 0x76,
+	0x69, 0x63, 0x65, 0x2e, 0x62, 0x6c, 0x6f, 0x67, 0x2e, 0x41, 0x72, 0x74, 0x69, 0x63, 0x6c, 0x65,
+	0x44, 0x65, 0x74, 0x61, 0x69, 0x6c, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00,
+	0x42, 0x09, 0x5a, 0x07, 0x2e, 0x2f, 0x3b, 0x62, 0x6c, 0x6f, 0x67, 0x62, 0x06, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x33,
 }
 
 var (
@@ -477,23 +609,29 @@ func file_proto_blog_blog_proto_rawDescGZIP() []byte {
 	return file_proto_blog_blog_proto_rawDescData
 }
 
-var file_proto_blog_blog_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_proto_blog_blog_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_proto_blog_blog_proto_goTypes = []interface{}{
 	(*CategoryIndexRequest)(nil),               // 0: go.micro.service.blog.CategoryIndexRequest
 	(*CategoryItem)(nil),                       // 1: go.micro.service.blog.CategoryItem
 	(*CategoryIndexResponse)(nil),              // 2: go.micro.service.blog.CategoryIndexResponse
 	(*ArticleRequest)(nil),                     // 3: go.micro.service.blog.ArticleRequest
 	(*ArticleResponse)(nil),                    // 4: go.micro.service.blog.ArticleResponse
-	(*CategoryIndexResponse_CategoryItem)(nil), // 5: go.micro.service.blog.CategoryIndexResponse.CategoryItem
-	(*ArticleResponse_ArticleItem)(nil),        // 6: go.micro.service.blog.ArticleResponse.ArticleItem
+	(*ArticleDetailRequest)(nil),               // 5: go.micro.service.blog.ArticleDetailRequest
+	(*ArticleDetailResponse)(nil),              // 6: go.micro.service.blog.ArticleDetailResponse
+	(*CategoryIndexResponse_CategoryItem)(nil), // 7: go.micro.service.blog.CategoryIndexResponse.CategoryItem
+	(*ArticleResponse_ArticleItem)(nil),        // 8: go.micro.service.blog.ArticleResponse.ArticleItem
 }
 var file_proto_blog_blog_proto_depIdxs = []int32{
-	5, // 0: go.micro.service.blog.CategoryIndexResponse.CategoryList:type_name -> go.micro.service.blog.CategoryIndexResponse.CategoryItem
-	6, // 1: go.micro.service.blog.ArticleResponse.ArticleList:type_name -> go.micro.service.blog.ArticleResponse.ArticleItem
+	7, // 0: go.micro.service.blog.CategoryIndexResponse.CategoryList:type_name -> go.micro.service.blog.CategoryIndexResponse.CategoryItem
+	8, // 1: go.micro.service.blog.ArticleResponse.ArticleList:type_name -> go.micro.service.blog.ArticleResponse.ArticleItem
 	0, // 2: go.micro.service.blog.Blog.Category:input_type -> go.micro.service.blog.CategoryIndexRequest
-	2, // 3: go.micro.service.blog.Blog.Category:output_type -> go.micro.service.blog.CategoryIndexResponse
-	3, // [3:4] is the sub-list for method output_type
-	2, // [2:3] is the sub-list for method input_type
+	3, // 3: go.micro.service.blog.Blog.Article:input_type -> go.micro.service.blog.ArticleRequest
+	5, // 4: go.micro.service.blog.Blog.ArticleDetail:input_type -> go.micro.service.blog.ArticleDetailRequest
+	2, // 5: go.micro.service.blog.Blog.Category:output_type -> go.micro.service.blog.CategoryIndexResponse
+	4, // 6: go.micro.service.blog.Blog.Article:output_type -> go.micro.service.blog.ArticleResponse
+	6, // 7: go.micro.service.blog.Blog.ArticleDetail:output_type -> go.micro.service.blog.ArticleDetailResponse
+	5, // [5:8] is the sub-list for method output_type
+	2, // [2:5] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
 	2, // [2:2] is the sub-list for extension extendee
 	0, // [0:2] is the sub-list for field type_name
@@ -566,7 +704,7 @@ func file_proto_blog_blog_proto_init() {
 			}
 		}
 		file_proto_blog_blog_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CategoryIndexResponse_CategoryItem); i {
+			switch v := v.(*ArticleDetailRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -578,6 +716,30 @@ func file_proto_blog_blog_proto_init() {
 			}
 		}
 		file_proto_blog_blog_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ArticleDetailResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_blog_blog_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CategoryIndexResponse_CategoryItem); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_blog_blog_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*ArticleResponse_ArticleItem); i {
 			case 0:
 				return &v.state
@@ -596,7 +758,7 @@ func file_proto_blog_blog_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_proto_blog_blog_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   9,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
