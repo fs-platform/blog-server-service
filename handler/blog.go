@@ -35,12 +35,13 @@ func (e *Blog) Article(ctx context.Context, req *blog.ArticleRequest, rsp *blog.
 	}
 	for _, val := range data {
 		item := blog.ArticleResponse_ArticleItem{
-			Name:   val.Name,
-			Id:     val.ID,
-			Status: uint32(val.Status),
-			Like: val.Like,
-			Author: val.Author,
+			Name:      val.Name,
+			Id:        val.ID,
+			Status:    uint32(val.Status),
+			Like:      val.Like,
+			Author:    val.Author,
 			UpdatedAt: uint64(val.UpdatedAt),
+			View:      val.View,
 		}
 		rsp.ArticleList = append(rsp.ArticleList, &item)
 	}
@@ -50,6 +51,7 @@ func (e *Blog) Article(ctx context.Context, req *blog.ArticleRequest, rsp *blog.
 // Article 文章列表
 func (e *Blog) ArticleDetail(ctx context.Context, req *blog.ArticleDetailRequest, rsp *blog.ArticleDetailResponse) error {
 	data, err := articleDetail.GetById(req.Id)
+	article.UpdateReview(req.Id)
 	if err != nil {
 		return err
 	}

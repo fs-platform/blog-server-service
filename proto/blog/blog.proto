@@ -42,6 +42,7 @@ message ArticleResponse {
         uint64 like = 4;
         string author = 5;
         uint64 updated_at = 6;
+        uint64 view = 7;
     }
     repeated ArticleItem ArticleList = 1;
 }
